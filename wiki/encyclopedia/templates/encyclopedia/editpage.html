@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% load static %}
+
+{% block title %}
+    Edit the Existing Page
+{% endblock %}
+
+{% block body %}
+    <h1>Edit the Existing Page</h1>
+    <form action= "{% url 'editsub' %}" method="post">
+        {% csrf_token %}
+
+        <label>Title:</label>
+        <br>
+        <textarea name="title">{{ title }}</textarea>
+        <br>
+
+        <label>Content:</label>
+        <br>
+        <textarea cols= '100', rows= '20' name="content">{{ content }}</textarea>
+
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
